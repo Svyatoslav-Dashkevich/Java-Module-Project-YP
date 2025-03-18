@@ -1,9 +1,22 @@
 public class Car {
-    String name;
-    int speed;
+    private String name;
+    private int speed;
 
-    Car(String name, int speed) {
+    public Car(String name, int speed) {
         this.name = name;
         this.speed = speed;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int distanceIn24Hours() {
+        return speed * 24;
+    }
 }
+

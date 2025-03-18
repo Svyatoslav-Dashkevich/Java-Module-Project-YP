@@ -1,15 +1,23 @@
-public class Race {
-    private String leader = "";
-    private int distance = 0;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void newLeader (Car car) {
-    int newDistance = 24 * car.speed;
-    if (distance < newDistance) {
-        distance = newDistance;
-        leader = car.name;
+public class Race {
+    private List<Car> cars = new ArrayList<>();
+    private Car leader;
+
+    public void addCar(Car car) {
+        cars.add(car);
+        updateLeader(car);
     }
+
+    private void updateLeader(Car car) {
+        if (leader == null || car.distanceIn24Hours() > leader.distanceIn24Hours()) {
+            leader = car;
+        }
     }
-    public String getLeader() {
+
+    public Car getLeader() {
         return leader;
     }
 }
+
